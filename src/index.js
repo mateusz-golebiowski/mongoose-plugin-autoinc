@@ -7,6 +7,8 @@ import mongoose, {
   type MongooseModel,
 } from 'mongoose';
 
+let conn = null;
+
 export type AutoIncSettings = {|
   migrate?: boolean, // If this is to be run on a migration for existing records. Only set this on migration processes.
   model: string, // The model to configure the plugin for.
@@ -47,11 +49,8 @@ counterSchema.index(
   }
 );
 
-export function initialize(): void {
-  console.log(
-    `MongooseAutoIncrement.initialize() method is deprecated. ` +
-      `Just remove this method, it not required anymore.`
-  );
+export function initialize(connection: mongoose.Connection): void {
+  conn = connection;
 }
 
 function isMongoDuplicateError(e: any): boolean {
@@ -291,26 +290,26 @@ export function autoIncrement(
   // Add nextCount as both a method on documents and a static on the schema for convenience.
   schema.method('nextCount', function(groupingFieldValue?: string) {
     const doc: MongooseDocument = this;
-    const IC = getIC(doc.collection.conn);
+    const IC = getIC(conn);
     return nextCount(IC, settings, groupingFieldValue);
   });
   // $FlowFixMe
   schema.static('nextCount', function(groupingFieldValue?: string) {
     const model: MongooseModel = this;
-    const IC = getIC(model.collection.conn);
+    const IC = getIC(conn);
     return nextCount(IC, settings, groupingFieldValue);
   });
 
   // Add resetCount as both a method on documents and a static on the schema for convenience.
   schema.method('resetCount', function(groupingFieldValue?: string) {
     const doc: MongooseDocument = this;
-    const IC = getIC(doc.collection.conn);
+    const IC = getIC(conn);
     return resetCount(IC, settings, groupingFieldValue);
   });
   // $FlowFixMe
   schema.static('resetCount', function(groupingFieldValue?: string) {
     const model: MongooseModel = this;
-    const IC = getIC(model.collection.conn);
+    const IC = getIC(conn);
     return resetCount(IC, settings, groupingFieldValue);
   });
 
@@ -324,7 +323,7 @@ export function autoIncrement(
     // Only do this if it is a new document & the field doesn't have
     // a value set (see http://mongoosejs.com/docs/api.html#document_Document-isNew)
     if ((doc.isNew && !alreadyGetId) || settings.migrate) {
-      const IC = getIC(doc.collection.conn);
+      const IC = getIC(conn);
       preSave(IC, settings, doc, next);
     } else {
       // If the document does not have the field we're interested in or that field isn't a number AND the user did

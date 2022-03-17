@@ -46,7 +46,7 @@
     "flow-bin": "^0.75.0",
     "jest": "^23.2.0",
     "mongodb-memory-server": "^1.8.0",
-    "mongoose": "^5.1.7",
+    "mongoose": "^6.2.7",
     "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
     "semantic-release": "^15.6.1",

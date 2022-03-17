@@ -1,4 +1,5 @@
 import { Schema } from 'mongoose';
+import * as mongoose from "mongoose";
 
 export type AutoIncSettings = {
   // If this is to be run on a migration for existing records. Only set this on migration processes.
@@ -25,6 +26,7 @@ export type AutoIncOptions = AutoIncSettings | Object | string;
  * The function to use when invoking the plugin on a custom schema.
  */
 declare function autoIncrement(schema: Schema, options?: AutoIncOptions): void;
+declare function initialize(connection: mongoose.Connection): void;
 
 // Alias for autoIncrement
 export function plugin(schema: Schema, options: AutoIncOptions): void;
