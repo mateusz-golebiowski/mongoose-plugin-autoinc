@@ -1,6 +1,6 @@
 {
   "name": "@matg97/mongoose-plugin-autoinc",
-  "version": "0.0.1-development",
+  "version": "1.1.10",
   "description": "This plugin allows you to auto-increment any field on any mongoose schema that you wish (forked mongoose-auto-increment in 2018).",
   "files": [
     "lib"
