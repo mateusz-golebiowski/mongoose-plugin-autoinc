@@ -3,7 +3,8 @@
   "version": "1.1.10",
   "description": "This plugin allows you to auto-increment any field on any mongoose schema that you wish (forked mongoose-auto-increment in 2018).",
   "files": [
-    "lib"
+    "lib",
+    "CHANGELOG.md"
   ],
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
@@ -26,6 +27,12 @@
     "mongoose": ">=4.0.0 || >=5.0.0"
   },
   "devDependencies": {
+    "@semantic-release/changelog": "^6.0.1",
+    "@semantic-release/commit-analyzer": "^9.0.2",
+    "@semantic-release/git": "^10.0.1",
+    "@semantic-release/github": "^8.0.2",
+    "@semantic-release/npm": "^9.0.1",
+    "@semantic-release/release-notes-generator": "^10.0.3",
     "@types/mongoose": "^5.0.18",
     "async": "^2.6.1",
     "babel-cli": "^6.26.0",
@@ -49,7 +56,7 @@
     "mongoose": "^6.2.7",
     "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
-    "semantic-release": "^15.6.1",
+    "semantic-release": "^15.14.0",
     "tslint": "^5.10.0",
     "typescript": "^2.9.2"
   },
