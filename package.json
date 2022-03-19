@@ -1,6 +1,6 @@
 {
-  "name": "mongoose-plugin-autoinc",
-  "version": "0.0.0-development",
+  "name": "@matg97/mongoose-plugin-autoinc",
+  "version": "1.1.10",
   "description": "This plugin allows you to auto-increment any field on any mongoose schema that you wish (forked mongoose-auto-increment in 2018).",
   "files": [
     "lib"
@@ -9,7 +9,7 @@
   "types": "lib/index.d.ts",
   "repository": {
     "type": "git",
-    "url": "https://github.com/nodkz/mongoose-plugin-autoinc.git"
+    "url": "https://github.com/mateusz-golebiowski/mongoose-plugin-autoinc.git"
   },
   "keywords": [
     "mongoose",
@@ -19,9 +19,9 @@
   ],
   "license": "MIT",
   "bugs": {
-    "url": "https://github.com/nodkz/mongoose-plugin-autoinc/issues"
+    "url": "https://github.com/mateusz-golebiowski/mongoose-plugin-autoinc/issues"
   },
-  "homepage": "https://github.com/nodkz/mongoose-plugin-autoinc",
+  "homepage": "https://github.com/mateusz-golebiowski/mongoose-plugin-autoinc",
   "peerDependencies": {
     "mongoose": ">=4.0.0 || >=5.0.0"
   },
@@ -46,7 +46,7 @@
     "flow-bin": "^0.75.0",
     "jest": "^23.2.0",
     "mongodb-memory-server": "^1.8.0",
-    "mongoose": "^5.1.7",
+    "mongoose": "^6.2.7",
     "prettier": "^1.13.7",
     "rimraf": "^2.6.2",
     "semantic-release": "^15.6.1",
